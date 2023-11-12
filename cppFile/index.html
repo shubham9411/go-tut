@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Hello</h1>
+  <button onclick="createobj()">Start</button>
+  <script>
+    function apicall() {
+      let a = "abcd1111";
+      fetch('https://reqres.in/api/users?page=2').then((resp) =>{
+        console.log(resp);
+        a = resp;
+        console.log(a, 1);
+        throw(new Error("error rrrr"))
+      }).catch(err => {
+        console.log(err);
+      })
+    }
+    function createobj() {
+      let obj = {
+        a: "1",
+        b: "2",
+        c: {
+          a: "1"
+        },
+        d: [1,2],
+      }
+      console.log(obj);
+    }
+    apicall();
+  </script>
+</body>
+</html>
